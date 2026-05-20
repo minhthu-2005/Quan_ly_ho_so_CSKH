@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <menuitem id="menu_quan_ly_ho_so_cskh_root"
+              name="Quản lý hồ sơ CSKH"
+              sequence="10"/>
+
+    <menuitem id="menu_lich_su_tuong_tac"
+              name="Lịch sử tương tác"
+              parent="menu_quan_ly_ho_so_cskh_root"
+              action="action_crm_interaction_history"/>
+
+    <record id="action_crm_interaction_history"
+            model="ir.actions.act_window">
+
+        <field name="name">
+            Lịch sử tương tác
+        </field>
+
+        <field name="res_model">
+            crm.interaction.history
+        </field>
+
+        <field name="view_mode">
+            tree,form
+        </field>
+
+    </record>
+
+</odoo>
