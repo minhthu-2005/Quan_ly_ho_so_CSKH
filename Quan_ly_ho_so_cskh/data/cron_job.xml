@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record id="ir_cron_crm_update_reminder"
+            model="ir.cron">
+
+        <field name="name">
+        
+        Nhắc cập nhật CRM
+        
+        </field>
+
+        <field name="model_id"
+               ref="model_crm_interaction_history"/>
+
+        <field name="state">code</field>
+
+        <field name="code">
+model.search([])
+        </field>
+
+        <field name="interval_number">1</field>
+
+        <field name="interval_type">days</field>
+
+        <field name="active">True</field>
+
+    </record>
+
+</odoo>
