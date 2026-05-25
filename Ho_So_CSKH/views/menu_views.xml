@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- CUSTOM THÊM MỚI -->
+    <!-- Action mở danh sách Hồ sơ CSKH -->
+
+    <record id="action_crm_cskh_profile"
+            model="ir.actions.act_window">
+
+        <field name="name">Hồ sơ CSKH</field>
+
+        <field name="res_model">crm.cskh.profile</field>
+
+        <field name="view_mode">list,form</field>
+
+    </record>
+
+    <!-- KẾ THỪA MODULE CRM -->
+    <!-- Gắn menu Hồ sơ CSKH vào menu CRM -->
+
+    <menuitem id="menu_crm_cskh_profile"
+              name="Hồ sơ CSKH"
+              parent="crm.crm_menu_root"
+              action="action_crm_cskh_profile"
+              sequence="50"/>
+
+</odoo>

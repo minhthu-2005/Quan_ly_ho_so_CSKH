@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- CUSTOM THÊM MỚI -->
+    <!-- Cron job nhắc cập nhật Hồ sơ CSKH quá hạn -->
+    <record id="ir_cron_cskh_update_reminder" model="ir.cron">
+        <field name="name">Nhắc cập nhật Hồ sơ CSKH</field>
+        <field name="model_id" ref="model_crm_cskh_profile"/>
+        <field name="state">code</field>
+        <field name="code">model._cron_crm_update_reminder()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="active">True</field>
+    </record>
+
+</odoo>

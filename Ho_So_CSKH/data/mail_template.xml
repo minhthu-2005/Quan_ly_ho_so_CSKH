@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- KẾ THỪA MODULE MAIL -->
+    <!-- Model mail.template -->
+    <!-- CUSTOM THÊM MỚI -->
+    <!-- Template email xác nhận complaint -->
+    <record id="email_template_complaint_received" model="mail.template">
+        <field name="name">Email xác nhận complaint</field>
+        <field name="model_id" ref="model_crm_cskh_profile"/>
+        <field name="subject">Ghi nhận phản hồi từ khách hàng</field>
+        <field name="email_from">{{ user.email or '' }}</field>
+        <field name="email_to">{{ object.customer_id.email or '' }}</field>
+        <field name="body_html" type="html">
+            <div>
+                <p>Kính gửi <t t-out="object.customer_id.name or 'Quý khách'"/>,</p>
+                <p>Chúng tôi đã ghi nhận phản hồi/khiếu nại của Quý khách.</p>
+                <p>Nhân viên phụ trách sẽ kiểm tra và phản hồi trong thời gian sớm nhất.</p>
+                <p>Trân trọng.</p>
+            </div>
+        </field>
+    </record>
+
+</odoo>

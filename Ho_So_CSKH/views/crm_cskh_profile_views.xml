@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- CUSTOM THÊM MỚI -->
+    <!-- List view quản lý Hồ sơ CSKH -->
+    <record id="view_crm_cskh_profile_list" model="ir.ui.view">
+        <field name="name">crm.cskh.profile.list</field>
+        <field name="model">crm.cskh.profile</field>
+        <field name="arch" type="xml">
+            <list string="Hồ sơ CSKH">
+                <field name="name"/>
+                <field name="lead_id"/>
+                <field name="customer_id"/>
+                <field name="interaction_type"/>
+                <field name="interaction_date"/>
+                <field name="user_id"/>
+                <field name="followup_deadline"/>
+                <field name="state"/>
+                <field name="is_overdue"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- CUSTOM THÊM MỚI -->
+    <!-- Form view quản lý Hồ sơ CSKH -->
+    <record id="view_crm_cskh_profile_form" model="ir.ui.view">
+        <field name="name">crm.cskh.profile.form</field>
+        <field name="model">crm.cskh.profile</field>
+        <field name="arch" type="xml">
+            <form string="Hồ sơ CSKH">
+                <header>
+                    <!-- CUSTOM THÊM MỚI -->
+                    <!-- Button hoàn thành Hồ sơ CSKH -->
+                    <button name="action_done"
+                            type="object"
+                            string="Hoàn thành"
+                            class="btn-primary"/>
+
+                    <!-- CUSTOM THÊM MỚI -->
+                    <!-- Button hủy Hồ sơ CSKH -->
+                    <button name="action_cancel"
+                            type="object"
+                            string="Hủy"
+                            class="btn-secondary"/>
+
+                    <!-- CUSTOM THÊM MỚI -->
+                    <!-- Hiển thị trạng thái Hồ sơ CSKH -->
+                    <field name="state" widget="statusbar"/>
+                </header>
+
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="lead_id"/>
+                            <field name="customer_id"/>
+                            <field name="interaction_type"/>
+                        </group>
+
+                        <group>
+                            <field name="interaction_date"/>
+                            <field name="user_id"/>
+                            <field name="followup_deadline"/>
+                            <field name="is_overdue"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Nội dung CSKH">
+                            <group>
+                                <field name="content"/>
+                                <field name="result"/>
+                                <field name="customer_need"/>
+                            </group>
+                        </page>
+
+                        <page string="Follow-up">
+                            <group>
+                                <field name="next_action"/>
+                                <field name="followup_deadline"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+
+                <!-- KẾ THỪA MODULE MAIL -->
+                <!-- Chatter của mail.thread -->
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- CUSTOM THÊM MỚI -->
+    <!-- Action mở danh sách Hồ sơ CSKH -->
+    <record id="action_crm_cskh_profile" model="ir.actions.act_window">
+        <field name="name">Hồ sơ CSKH</field>
+        <field name="res_model">crm.cskh.profile</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

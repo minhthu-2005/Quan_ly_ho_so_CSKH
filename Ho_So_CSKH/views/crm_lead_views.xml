@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- KẾ THỪA MODULE CRM -->
+    <!-- View crm.crm_lead_view_form -->
+    <record id="crm_lead_form_inherit_cskh_profile" model="ir.ui.view">
+        <field name="name">crm.lead.form.inherit.cskh.profile</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+        <field name="arch" type="xml">
+
+            <!-- CUSTOM THÊM MỚI -->
+            <!-- Thêm tab Hồ sơ CSKH vào form Lead/Opportunity -->
+            <xpath expr="//notebook" position="inside">
+                <page string="Hồ sơ CSKH">
+                    <field name="cskh_profile_ids">
+                        <list editable="bottom">
+                            <field name="interaction_type"/>
+                            <field name="interaction_date"/>
+                            <field name="content"/>
+                            <field name="result"/>
+                            <field name="customer_need"/>
+                            <field name="next_action"/>
+                            <field name="followup_deadline"/>
+                            <field name="state"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>
